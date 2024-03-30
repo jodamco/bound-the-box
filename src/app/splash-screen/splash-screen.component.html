@@ -1,0 +1,16 @@
+<section>
+  <div class="layer-stack">
+    <img
+      class="cursor"
+      [ngClass]="{ dragging: animate }"
+      src="../../assets/cursor.svg"
+      alt="cursor"
+    />
+    <div class="layer canvas" *ngIf="animate"></div>
+    <div class="layer title-wrapper">
+      <h1 class="app-title">Bound</h1>
+      <h1 class="app-title">the</h1>
+      <h1 class="app-title">box</h1>
+    </div>
+  </div>
+</section>

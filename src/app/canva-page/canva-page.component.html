@@ -1,0 +1,59 @@
+<section>
+  <div class="scroller">
+    <aside class="explanation">
+      <header class="title-wrapper">
+        <h2 class="app-title">Bound</h2>
+        <h2 class="app-title">the</h2>
+        <h2 class="app-title highlight">box</h2>
+      </header>
+      <div class="topic-list">
+        <div class="topic">
+          <h1>1. Upload an image 🏞️</h1>
+          <p>
+            Select an image from your device. Better the quality, same result 😎
+          </p>
+        </div>
+        <div class="topic">
+          <h1>2. ✏️ your bounding box</h1>
+          <p>Use the canva to trace your rectangles</p>
+          <p class="link">
+            <a
+              href="https://www.youtube.com/watch?v=sFEBcEzh2oc&ab_channel=SuperVideos"
+            >
+              "Measure your boundings, pal"</a
+            >
+          </p>
+        </div>
+        <div class="topic">
+          <h1>3. Use the proportions!</h1>
+          <p>
+            The bounding box proportions will be handed in percentage to the
+            image. No poor quality should stop you 🚀🚀🚀
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="image-upload">
+        <div class="canvas">
+          <div class="background"></div>
+          <label class="upload-area" for="imgInput">
+            <h1>upload image</h1>
+          </label>
+          <input
+            id="imgInput"
+            type="file"
+            accept="image/jpeg, .jpg"
+            (change)="uploadImg($event)"
+            style="display: none"
+          />
+        </div>
+      </div>
+
+      <div class="canvas"></div>
+
+      <div class="canvas-ctrls"></div>
+    </main>
+  </div>
+</section>
