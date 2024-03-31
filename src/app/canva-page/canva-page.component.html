@@ -1,6 +1,6 @@
 <section>
-  <div class="scroller">
-    <aside class="explanation">
+  <aside [ngClass]="{ active: displayCanvas }">
+    <div class="explanation">
       <header class="title-wrapper">
         <h2 class="app-title">Bound</h2>
         <h2 class="app-title">the</h2>
@@ -32,9 +32,9 @@
           </p>
         </div>
       </div>
-    </aside>
+    </div>
 
-    <main>
+    <div class="upload">
       <div class="image-upload">
         <div class="canvas">
           <div class="background"></div>
@@ -50,10 +50,69 @@
           />
         </div>
       </div>
+    </div>
+  </aside>
+  <main [ngClass]="{ active: displayCanvas }">
+    <div class="canvas-area">
+      <p class="link" (click)="clearImg()">&#x2190; voltar</p>
 
-      <div class="canvas"></div>
+      <div class="canvas-layers">
+        <div class="image" [ngClass]="{ portrait: ratio <= 1 }">
+          <img
+            id="uploadedImg"
+            src="#"
+            alt="Uploaded img"
+            [draggable]="false"
+          />
+        </div>
+        <div
+          class="image draw-board"
+          [ngClass]="{ portrait: ratio <= 1 }"
+          (mousedown)="onMouseDown($event)"
+          (mousemove)="onMouseMove($event)"
+          (mouseup)="onMouseUp($event)"
+          (mouseleave)="onMouseUp($event)"
+        >
+          <img
+            #shadowImg
+            id="shadowImg"
+            src="#"
+            alt="Uploaded img"
+            [draggable]="false"
+          />
+          <span
+            *ngIf="boundingBox !== undefined"
+            class="bounding-box"
+            [style.width.px]="boundingBox.width"
+            [style.height.px]="boundingBox.height"
+            [style.left.px]="boundingBox.left"
+            [style.top.px]="boundingBox.top"
+          ></span>
+        </div>
+      </div>
+    </div>
 
-      <div class="canvas-ctrls"></div>
-    </main>
-  </div>
+    <div class="canvas-ctrls">
+      <header class="title-wrapper secondary">
+        <h2 class="app-title">to</h2>
+        <h2 class="app-title highlight">bound</h2>
+        <h2 class="app-title">the box use</h2>
+      </header>
+
+      <div class="json-display">
+        <pre><code #code class="json">//draw your bounding box
+        </code></pre>
+      </div>
+
+      <button (click)="copyText()" [disabled]="boundingBox === undefined">copy boundaries</button>
+    </div>
+  </main>
 </section>
+<footer>
+  <p>developped by Jodamco (with the help of google and stack overflow 😝)</p>
+</footer>
+
+<span class="copy-confimation" *ngIf="isCopySuccess">
+  <p>👍</p>
+  <p>copied</p>
+</span>
