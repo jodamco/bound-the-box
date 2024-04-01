@@ -11,6 +11,6 @@ BoundTheBox is an experimental project written to solve a small problem and try 
 - Unit test this whoooole project
 
 ##  Next steps
-[] Make it possible to draw and control more than one bounding box
-[] Make it possible to draw boxes backwards: currently is not possible to draw boxes going to the negative direction of the initual point
-[] Fix layout for mobile devices
+- [ ] Make it possible to draw and control more than one bounding box
+- [ ] Make it possible to draw boxes backwards: currently is not possible to draw boxes going to the negative direction of the initual point
+- [ ] Fix layout for mobile devices
